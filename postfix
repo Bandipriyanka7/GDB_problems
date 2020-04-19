@@ -1,0 +1,36 @@
+import java.util.*;
+public class Main
+    {
+        public static void main (String[] args) 
+        {
+           Scanner sc=new Scanner(System.in);
+           String s=sc.next();
+           char ch=' ',ch1=' ';
+           Stack<Character> s1=new Stack<>();
+           int len=s.length();
+           for(int i=0;i<len;i++)
+           {
+               if(Character.isDigit(s.charAt(i)))
+               s1.push(s.charAt(i));
+               else
+               {
+                  
+                if(!s1.isEmpty())
+                {
+               ch=s1.pop();
+                System.out.print(ch);
+                }
+               if(!s1.isEmpty())
+               {
+               ch1=s1.pop();
+               System.out.print(ch1);
+               }
+                System.out.print(s.charAt(i));
+               }
+           }
+           while(!s1.isEmpty())
+           {
+           System.out.print(s1.pop());
+           }
+        }
+    }
