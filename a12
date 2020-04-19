@@ -1,0 +1,40 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int i=0,s=0,sum=0,max=0,g=0,f=0,sum1=0;
+	int n=sc.nextInt();
+	int k=sc.nextInt();
+	int[] a=new int[n];
+	for(i=0;i<n;i++)
+	a[i]=sc.nextInt();
+	s=n-k+1;
+	for(i=1;i<n-s;i++)
+	{
+	    for(int j=i;j<i+s;j++)
+	    {
+	        sum=sum+a[j];
+	        
+	    }
+	    System.out.println(sum);
+	    if(sum>max)
+	    {
+	        max=sum;
+	        g=i;
+	        f=i+s;
+	    }
+	    sum=0;
+	}
+	System.out.println(max);
+	for(i=0;i<g;i=i+1)
+	{
+	   sum1=Math.abs(a[i]-a[i+1])+sum1; 
+	}
+	sum1=Math.abs(max-a[f])+sum1;
+	for(i=f;i<n-1;i++)
+	sum1=Math.abs(a[i]-a[i+1])+sum1;
+	System.out.println(sum1);
+}
+}
+
