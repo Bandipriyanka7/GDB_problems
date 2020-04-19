@@ -1,0 +1,34 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int n=sc.nextInt();
+	String res="";
+	String str="";
+	String a=sc.next();
+	int max=0;
+	List<Character> l1=new Vector<>();
+	for(char ch:a.toCharArray())
+	{
+	    if(!l1.contains(ch))
+	    l1.add(ch);
+	}
+	for(int i=0;i<n;i++)
+	{
+	    for(int j=i;j<n;j++)
+	    {
+	    str=a.substring(i,j+1);
+	    //System.out.print(str+"   ");
+	    int k=str.compareTo(a);
+	    //System.out.println(k);
+	    if(k>=max)
+	    {
+	    max=k;
+	    res=String.copyValueOf(str.toCharArray());
+	    }
+	}
+	}
+	System.out.println(res);
+}
+}
