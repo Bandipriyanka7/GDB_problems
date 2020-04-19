@@ -1,0 +1,43 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		//System.out.println("Hello World");
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		int i,j,l,k,m=0,flag=0,max=0;
+		String str1="";
+		l=s.length();
+		String str="";
+		for(i=0;i<l-3;i++)
+		{
+		    for(j=i+3;j<l;j++)
+		    {
+		        flag=0;
+		        str=s.substring(i,j);
+		        System.out.println(str+"...");
+		        for(k=0;k<i-j-1;k++)
+		        {
+		        for(m=k+1;m<i-j;m++)
+		        {
+		        if(str.charAt(k)==str.charAt(m))
+		        {
+		        flag=1;
+		        break;
+		        }
+		        }
+		        }
+		        if(flag==0 && max<str.length())
+		        {
+		            max=str.length();
+		            str1=str;
+		        }
+		        
+		    }
+		}
+		if(flag==0)
+		System.out.println(str1);
+		else
+		System.out.println("-1");
+	}
+}
