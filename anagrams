@@ -1,0 +1,67 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	Scanner sc=new Scanner(System.in);
+	String a=sc.nextLine();
+	String b=sc.nextLine();
+	char ch;
+	int i=0,l1=0,count=1,l2=0,flag=1;
+	l1=a.length();
+	l2=b.length();
+//	System.out.println(l1);
+	if(l1==l2)
+	{
+	    Map<Character,Integer> m1=new HashMap<>();
+	    for(i=0;i<l1;i++)
+	    {
+	        ch=a.charAt(i);
+	        if(m1.containsKey(ch))
+	        {
+	            count=m1.get(ch);
+	            count++;
+	            m1.put(ch,count);
+	            //System.out.println(count);
+	        }
+	        else if(ch!=' ')
+	        {
+	            m1.put(ch,1);
+	           // System.out.println(count);
+	        }
+	    }
+	    for(i=0;i<l1;i++)
+	    {
+	        ch=b.charAt(i);
+	        if(m1.containsKey(ch))
+	        {
+	          count=m1.get(ch);
+	          if(count>0)
+	          {
+	              count--;
+	              m1.put(ch,count);
+	          }
+	          else if(ch!=' ')
+	          {
+	              flag=0;
+	              break;
+	          }
+	        }
+	        else
+	        {
+	        flag=0;
+	        break;
+	        }
+	    }
+	}
+	else
+	{
+	    flag=0;
+	}
+	if(flag==0)
+	System.out.println("No");
+	else
+	System.out.println("Yes");
+	}
+}
+
