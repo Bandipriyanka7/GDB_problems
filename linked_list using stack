@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node* next;
+}*head=NULL;
+
+void push(int val)
+{
+   struct node* newnode=(struct node*)malloc(sizeof(struct node));
+    if(head==NULL)
+    {
+        newnode->data=val;
+        newnode->next=NULL;
+        head=newnode;
+        printf("%d pushed \n",val);
+        return;
+    }
+    
+    newnode->data=val;
+    newnode->next=head;
+    head=newnode;
+    printf("%d pushed \n",val);
+}
+void display()
+{
+    while(head->next!=NULL)
+    {
+        printf("%d %u\n",head->data,head->next);
+        head=head->next;
+    }
+}
+void pop()
+{
+ struct node* temp;
+ temp=head->next;
+ free(head);
+ printf("poped\n");
+}
+int main()
+{
+    push(10);
+    push(20);
+    display();
+    pop();
+    display();
+    return 0;
+}
+
