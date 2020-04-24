@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,rank=1;
+    cin>>t;
+    while(t--)
+    {
+    string s1;
+    cin>>s1;
+    string s2=s1;
+    sort(s1.begin(),s1.end());
+    while(1)
+    {
+    if(s2==s1)
+    {
+        cout<<rank;
+        break;
+    }
+    if(!next_permutation(s1.begin(),s1.end()))
+    break;
+    rank++;
+    }
+    rank=1;
+    }
+    return 0;
+}
